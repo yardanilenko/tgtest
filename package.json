@@ -1,0 +1,24 @@
+{
+  "name": "gramjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "clear && nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "input": "^1.0.1",
+    "telegram": "^2.19.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "nodemon": "^3.0.3",
+    "prettier": "3.2.4"
+  }
+}
