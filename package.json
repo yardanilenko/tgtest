@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "clear && nodemon index.js",
+    "start": "clear && nodemon --exec babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,9 +14,13 @@
     "dotenv": "^16.4.1",
     "eslint-config-airbnb": "^19.0.4",
     "input": "^1.0.1",
+    "pm2": "^5.3.1",
     "telegram": "^2.19.10"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.0",
     "eslint": "^8.56.0",
     "nodemon": "^3.0.3",
     "prettier": "3.2.4"
