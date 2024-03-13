@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^16.4.1",
     "eslint-config-airbnb": "^19.0.4",
+    "esm": "^3.2.25",
     "input": "^1.0.1",
     "pm2": "^5.3.1",
     "telegram": "^2.19.10"
