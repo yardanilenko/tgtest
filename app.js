@@ -8,8 +8,8 @@ dotenv.config();
 
 const apiId = +process.env.API_ID;
 const apiHash = process.env.API_HASH;
-// const stringSession = new StringSession(process.env.STRING_SESSION); // fill this later with the value from session.save()
-const stringSession = new StringSession(); // fill this later with the value from session.save()
+const stringSession = new StringSession(process.env.STRING_SESSION); // fill this later with the value from session.save()
+// const stringSession = new StringSession(); // fill this later with the value from session.save()
 
 
 (async () => {
