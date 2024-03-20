@@ -48,7 +48,7 @@ const stringSession = new StringSession(process.env.STRING_SESSION); // fill thi
 
   client.addEventHandler(async (update) => {
     console.log('💁👌🎍😍updateupdate💁👌🎍😍💁👌🎍😍💁👌🎍😍💁👌🎍😍', update?.message?.peerId?.channelId?.value)
-    if (update.className === "UpdateNewChannelMessage" && update?.message?.peerId?.channelId?.value === 1798013188n && update?.message?.media !== null) {
+    if (update.className === "UpdateNewChannelMessage" && update?.message?.peerId?.channelId?.value === 1913531068n && update?.message?.media !== null) {
       updateQueue.push(update);
       processQueue();
     }
