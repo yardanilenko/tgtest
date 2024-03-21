@@ -31,28 +31,33 @@ const stringSession = new StringSession(process.env.STRING_SESSION); // fill thi
   console.log(client.session.save()); // Save this string to avoid logging in again // строка с сессией
 
   // await client.sendMessage("me", { message: "Hello!" }); // Пример отправки себе сообщения
-
+  const updateQueueTimeout = 800; // Задаем время ожидания в миллисекундах (здесь 1 секунда)
   const updateQueue = [];
   let isProcessing = false;
+  let updateQueueTimer = null;
 
   async function processQueue() {
     if (isProcessing) return;
     isProcessing = true;
-
+  
     while (updateQueue.length > 0) {
       const currentUpdate = updateQueue.shift();
       await handleUpdate(currentUpdate, client);
     }
-
+  
     isProcessing = false;
+    updateQueueTimer = null; // Сбрасываем таймер
   }
 
 
   client.addEventHandler(async (update) => {
-    console.log('💁👌🎍😍updateupdate💁👌🎍😍💁👌🎍😍💁👌🎍😍💁👌🎍😍', update?.message?.peerId?.channelId?.value)
-    if (update.className === "UpdateNewChannelMessage" && update?.message?.peerId?.channelId?.value === 1913531068n && update?.message?.media !== null) {
-      updateQueue.push(update);
-      processQueue();
+    console.log('💁👌🎍😍updateupdate💁👌🎍😍💁👌🎍', update?.message?.peerId?.channelId?.value)
+      if (update.className === "UpdateNewChannelMessage" && update?.message?.peerId?.channelId?.value === 1913531068n && update?.message?.media !== null) {
+        updateQueue.push(update);
+      if (!isProcessing && !updateQueueTimer) { // Проверяем, что нет активного процесса и таймера
+        // Вызываем processQueue с задержкой, если нет активного процесса и таймера
+        updateQueueTimer = setTimeout(processQueue, updateQueueTimeout);
+      }
     }
   });
 })();
